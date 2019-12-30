@@ -8,6 +8,7 @@ stages {
     git 'https://github.com/revanthvemuri/devops-intellipat'
    }
   }
+  parallel {
    stage ('build')
   {
    steps 
@@ -15,6 +16,13 @@ stages {
     echo "checkout complete. Build will start"
    }
  }
-   
+  stage ('test')
+  {
+   steps 
+   {
+    echo "Build will run parallel. test will start"
+   }
+ }
+   }
 }
 }
