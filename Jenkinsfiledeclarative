@@ -1,28 +1,33 @@
 pipeline {
-agent any
-stages {
- stage ('Scm Checkout')
+ agent any
+  stages 
  {
-   steps 
+   stage ('Scm Checkout')
    {
-    git 'https://github.com/revanthvemuri/devops-intellipat'
+    steps 
+    {
+     git 'https://github.com/revanthvemuri/devops-intellipat'
+    }
+   }
+   stage ('parallel')
+   {
+  parallel 
+  {
+   stage ('build')
+    {
+     steps 
+     {
+       echo "checkout complete. Build will start"
+     }
+   }
+    stage ('test')
+    {
+      steps 
+      {
+       echo "Build will run parallel. test will start"
+     }
    }
   }
-  parallel {
-   stage ('build')
-  {
-   steps 
-   {
-    echo "checkout complete. Build will start"
-   }
- }
-  stage ('test')
-  {
-   steps 
-   {
-    echo "Build will run parallel. test will start"
-   }
- }
-   }
+  }
 }
 }
