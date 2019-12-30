@@ -1,0 +1,20 @@
+pipeline {
+node any
+stages {
+ stage ('Scm Checkout')
+ {
+   steps 
+   {
+    git 'https://github.com/revanthvemuri/devops-intellipat'
+   }
+  }
+   stage ('build')
+  {
+   steps 
+   {
+    echo "checkout complete. Build will start"
+   }
+ }
+   
+}
+}
