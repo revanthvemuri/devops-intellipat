@@ -1,12 +1,8 @@
-pipeline{
-	stages{
+node{
+	
 stage ('SCM checkout'){
-	git url:'https://github.com/revanthvemuri/devops-intellipat.git'
+	git 'https://github.com/revanthvemuri/devops-intellipat'
 	
   }
-stage('Compile Package')
-{
-	
-}  
-	}
+
 }
