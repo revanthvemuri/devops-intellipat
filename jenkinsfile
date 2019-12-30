@@ -1,6 +1,6 @@
 node{
 stage ('SCM checkout'){
-	git ''
+	git 'https://github.com/revanthvemuri/devops-intellipat.git'
 	
   }
 stage('Compile Package')
